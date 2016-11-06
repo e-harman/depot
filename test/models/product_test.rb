@@ -45,7 +45,7 @@ class ProductTest < ActiveSupport::TestCase
       assert new_product(name).valid?, "#{name} should be valid"
     end
     bad.each do |name|
-      assert new_product(name).invalid?, "#{name} shouldn't be valid"
+      assert new_product(name).invalid?, "#{name} should be invalid"
     end
   end
   
@@ -57,6 +57,14 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert_equal [I18n.translate('errors.messages.taken')],
 	product.errors[:title]
+  end
+  
+  test "product is not valid unless title is 10 or more characters" do
+    product = Product.new(title:        "short",
+                          description:  "desc for short",
+                          price:        2,
+                          image_url:    "fred.gif")
+    assert product.invalid?, "Title must be a minimum of 10 characters"
   end
   
 end
