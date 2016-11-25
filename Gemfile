@@ -15,9 +15,22 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+#gem 'jquery-rails'
+# Added for iteration F3
+#gem 'jquery-ui-rails'
+
+#START:jquery
+# Use jquery as the JavaScript library
 gem 'jquery-rails'
+#START_HIGHLIGHT
+gem 'jquery-ui-rails'
+#END_HIGHLIGHT
+#END:jquery
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '2.5.3'
+# Per Andrew, "may also need the turbo-links jquery gem"
+gem 'jquery-turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
