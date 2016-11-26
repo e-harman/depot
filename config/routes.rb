@@ -9,22 +9,28 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :orders
-  resources :line_items
-  resources :carts
   
-  get 'store/index'
   resources :products do
     get :who_bought, on: :member
+  end
+
+  #Is this still needed? Downloaded code showed it being in the following scope section
+  #but the book doesn't show it at all (pp.212-213)
+  get 'store/index'
+  
+  scope '(:locale)' do
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'store#index', as: 'store', via: :all
   end
 
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
+  # You can have the root of your site routed with "root" (now above - EJH)
   # root 'welcome#index'
-  root 'store#index', as: 'store'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
