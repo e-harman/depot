@@ -29,11 +29,11 @@ en:
       news:       "News"
       contact:    "Contact"
 
-  store: 
+  store:
     index:
       title_html:  "Your Pragmatic Catalog"
       add_html:    "Add to Cart"
-        
+
   carts:
     cart:
       title:    "Your Cart"
