@@ -30,7 +30,7 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
                                pay_types: "Check" }
     assert_response :success
     assert_template "index"
-    Cart = Cart.find(session[:cart_id])
+    cart = Cart.find(session[:cart_id])
     assert_equal 0, cart.line_items.size
     
     orders = Order.all
